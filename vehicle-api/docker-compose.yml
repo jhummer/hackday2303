@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  vehicle-api:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      ENVIRONMENT: local
+      LOG_LEVEL: DEBUG
+      DJANGO_DEBUG: "true"
+      DJANGO_LOG_LEVEL: INFO
+      RMQ_HOST: rabbitmq
+      RMQ_USER: guest
+      RMQ_PASS: guest
+      RMQ_PORT: 5672
+      RMQ_PUBLISH_ENABLED: "true"
+    networks:
+      - develop
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+
+volumes:
+  postgres_data:
+
+networks:
+  develop:
+    external: true
