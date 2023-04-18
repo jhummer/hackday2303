@@ -31,5 +31,5 @@ def create_brand(request, brand_id: int):
 
 
 @api.get("/models", response=List[ModelSchema])
-def brands(request):
+def models(request):
     return get_objects(Model)

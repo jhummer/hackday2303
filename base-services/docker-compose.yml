@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  db:
+  postgres:
     image: postgres:alpine
     environment:
       POSTGRES_PASSWORD: postgres
@@ -58,7 +58,7 @@ services:
     command: >
       bash -c
         "sleep 5s &&
-        kafka-topics --create --topic=services --if-not-exists --bootstrap-server=kafka:9092"
+        kafka-topics --create --topic=vehicle --if-not-exists --bootstrap-server=kafka:9092"
     networks:
       - develop
 

@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  rmq-kafka-worker:
+    build: .
+    command: python /app/app/main.py
+    environment:
+      LOG_LEVEL: DEBUG
+      RMQ_HOST: rabbitmq
+      RMQ_USER: guest
+      RMQ_PASS: guest
+      RMQ_PORT: 5672
+    networks:
+      - develop
+
+networks:
+  develop:
+    external: true

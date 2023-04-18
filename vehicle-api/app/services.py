@@ -24,4 +24,5 @@ def create_object(model, **kwargs):
 def delete_object(model, pk):
     obj = model.objects.get(pk=pk)
     json = BrandSchema.from_orm(obj).dict()
+    obj.delete()
     _publish(model, json, "deleted")
