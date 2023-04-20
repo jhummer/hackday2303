@@ -10,6 +10,8 @@ services:
       RMQ_USER: guest
       RMQ_PASS: guest
       RMQ_PORT: 5672
+      KAFKA_HOST: kafka
+      KAFKA_PORT: 9092
     networks:
       - develop
 
